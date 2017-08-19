@@ -27,7 +27,7 @@
         }
 
         form{
-                width: 310px;
+                width: 430px;
                 border: 1px solid #4e4e4e;
                 padding: 10px 57px;
                 margin: 30px 0;
@@ -195,7 +195,7 @@
         <div ng-if="filterData.length>0">
             <h2>Filtered Data</h2>
         </div>
-        <div ng-if="filterData.length == 0" style="text-align: center;">
+        <div ng-if="filterData.length == 0 && userSearchQuery == 1" style="text-align: center;">
             <h4>No Result found</h4>
         </div>
         <table ng-if="filterData.length>0">
@@ -271,6 +271,8 @@
 
             $scope.originalsquirrelSearch = { };
 
+            $scope.userSearchQuery = 0;
+
             $scope.squirrelSearch = angular.copy($scope.originalsquirrelSearch);
 
             $scope.squirrelQueryData = angular.copy($rootScope.squirrelData);
@@ -288,7 +290,7 @@
                     }
                     i++
                 };
-                console.log($scope.filterData);
+                $scope.userSearchQuery = 1;
                 $scope.squirrelSearch = angular.copy($scope.originalsquirrelSearch);
 
             };
